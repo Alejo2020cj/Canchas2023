@@ -1,0 +1,151 @@
+﻿@*@model Canchas2.Models.CanchaFut*@
+@model Canchas4.ViewModels.ReservaCanchasVM 
+
+@{
+    ViewData["Title"] = "Crear Reserva";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+<h3 class="text-center">Crear </h3>
+
+<form method="post" id="calendar" asp-action="Crear">
+    <div class="row">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="col-12 mt-4">
+            <div class="row">
+                <div class="col-4">
+                    <label asp-for="Reservas.FechaInicio"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Reservas.FechaInicio" class="form-control" />
+                    <span asp-validation-for="Reservas.FechaInicio" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <label asp-for="Reservas.FechaFin"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Reservas.FechaFin" class="form-control" />
+                    <span asp-validation-for="Reservas.FechaFin" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <label asp-for="Reservas.HoraInicio"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Reservas.HoraInicio" class="form-control" />
+                    <span asp-validation-for="Reservas.HoraInicio" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <label asp-for="Reservas.HoraFin"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Reservas.HoraFin" class="form-control" />
+                    <span asp-validation-for="Reservas.HoraFin" class="text-danger"></span>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-4">
+            <label asp-for="Reservas.CanchaFutId"></label>
+        </div>
+        <div class="col-8">
+            @Html.DropDownListFor(u => u.Reservas.CanchaFutId, Model.ReservaCanFut, "--Canchas de futbol--",
+            new {@class = "form-control"})
+            <span asp-validation-for="Reservas.CanchaFutId" class="text-danger"></span>
+        </div>
+@*        <div class="col-4">
+            <label asp-for="Reservas.CanchaVoleiId"></label>
+        </div>*@
+@*        <div class="col-8">
+            @Html.DropDownListFor(u => u.Reservas.CanchaVoleiId, Model.ReservaCanBolei, "--Canchas de Boleivol--",
+            new {@class = "form-control"})
+            <span asp-validation-for="Reservas.CanchaVoleiId" class="text-danger"></span>
+        </div>*@
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-3">
+            <a asp-action="Index">Volver a lista</a>
+        </div>
+        <div class="col-5 offset-4">
+            <button type="submit" id="crea" class="btn btn-primary form-control">Crear</button>
+            &nbsp;
+        </div>
+   
+    </div>
+
+</form>
+
+
+
+
+
+
+<div id='calendar'></div>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
+
+ 
+    
+<script>
+   
+
+//    $(function(){
+//        GetTasksCalendar();
+//    });
+
+//    function GetTasksCalendar() {
+//        var calendarEl = document.getElementById('calendar');
+//        var calendar = new FullCalendar.Calendar(calendarEl, {
+//            plugins: ['interaction', 'dayGrid'],
+//            header: {
+//                left: 'prevYear,prev,next,nextYear today',
+//                center: 'title',
+//                right: 'dayGridMonth,dayGridWeek,dayFridDay'
+
+//            }
+//           naviLinks: true,
+//            eventLimit: true,
+//            eventClick: function (eventoObj) {
+
+
+//            }
+
+//        });
+
+//        calendar.render();
+
+//    }
+//</script>
+
+
+<script>
+    function crea(url){
+        
+
+        Swal.fire({
+            type: 'crea'
+            position: 'top-end',
+            icon: 'success',
+            title: 'Your work has been saved',
+            showConfirmButton: false,
+            timer: 1500
+        })
+    }
+
+
+</script>

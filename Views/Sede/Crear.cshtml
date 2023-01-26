@@ -1,0 +1,75 @@
+﻿@model Canchas4.Models.Sede
+@{
+    ViewData["Title"] = "Crear Sede";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<br />
+<br />
+<h3 class="text-center">Crear una nueva Sede</h3>
+<form method="post" id="frmEnviar" asp-action="Crear">
+    <div class="row">
+        <div asp-validation-summary="ModelOnly" class="text_danger"></div>
+        <div class="col-12 mt-4">
+            <div class="row">
+                <div class="col-4">
+                    <label asp-for="Nombre"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Nombre" class="form-control" />
+                    <span asp-validation-for="Nombre" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+         @*   <div asp-validation-summary="ModelOnly" class="text_danger"></div>*@
+            <div class="col-12 mt-4">
+                <div class="row">
+                    <div class="col-4">
+                        <label asp-for="Direccion"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Direccion" class="form-control" />
+                        <span asp-validation-for="Direccion" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-3">
+                <a asp-action="Index">Volver a la Lista</a>
+            </div>
+            <div class="col-5 offset-4">
+                <button type="button" onclick="abrirModal()" class="btn btn-primary form-control">Crear</button>
+                &nbsp;
+            </div>
+        </div>
+        </div>
+</form>
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
+    <script>
+    function abrirModal() {
+
+
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Creaste una nueva Sede',
+                showConfirmButton: false,
+                timer: 1500
+
+            }).then((result) => {
+                if (result) {
+
+                    var frmEnviar = document.getElementById("frmEnviar");
+                    frmEnviar.submit();
+                }
+
+            })
+
+    }
+</script>

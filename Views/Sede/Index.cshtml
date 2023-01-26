@@ -1,0 +1,48 @@
+﻿ @model IEnumerable<Canchas4.Models.Sede>
+@{
+    ViewData["Title"] = "Lista de Sedes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<div class="row">
+    <div class="col-4">
+        <h3>Canchas de Futbol</h3>
+    </div>
+    <div class="col-3">
+        <a asp-action="Crear" class="btn btn-primary form-control">Crear nueva Sede</a>
+    </div>
+</div>
+
+<div>
+    @if (Model.Count() > 0)
+    {
+        <table class="table table-striped border">
+            <tr>
+                <th>@Html.DisplayNameFor(c => c.SedeId)</th>
+                <th>@Html.DisplayNameFor(c => c.Nombre)</th>
+                <th>@Html.DisplayNameFor(c => c.Direccion)</th>
+                <th>Acciones</th>
+            </tr>
+            @foreach (var sede in Model)
+            {
+                <tr>
+                    <td>@sede.SedeId</td>
+                    <td>@sede.Nombre</td>
+                    <td>@sede.Direccion</td>
+
+
+                    <td>
+                        <a class="btn btn-primary text-write" asp-action="Editar" asp-route-id="@sede.SedeId">Editar</a>
+                        <a class="btn btn-danger text-write" asp-action="Borrar" asp-route-id="@sede.SedeId">Borrar</a>
+                    </td>
+                </tr>
+            }
+
+        </table>
+    }
+    else
+    {
+        <p>No hay Canchas registradas</p>
+    }
+</div>

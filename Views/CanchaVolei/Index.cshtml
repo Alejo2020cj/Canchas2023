@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Canchas4.Models.CanchVolei>
+@{
+    ViewData["Title"] = "Lista de canchas tipo Voleibol";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<div class="row">
+    <div class="col-4">
+        <h3>Canchas de Voleibol</h3>
+    </div>
+    <div class="col-3">
+        <a asp-action="Crear" class="btn btn-primary form-control">Crear nueva cancha</a>
+    </div>
+</div>
+<body>
+    <div>
+        @if (Model.Count() > 0)
+        {
+            <table class="table table-striped border">
+                <tr>
+                    <th>@Html.DisplayNameFor(c => c.CanchaVoleiId)</th>
+                    <th>@Html.DisplayNameFor(c => c.Nombre)</th>
+                    <th>@Html.DisplayNameFor(c => c.Descripcion)</th>
+                    <th>@Html.DisplayNameFor(c => c.SedeId)</th>
+                    <th>Acciones</th>
+                </tr>
+                @foreach (var cancha in Model)
+                {
+                    <tr>
+                        <td>@cancha.CanchaVoleiId</td>
+                        <td>@cancha.Nombre</td>
+                        <td>@cancha.Descripcion</td>
+                        <td>@cancha.SedeId</td>
+
+                        <td>
+                            <a class="btn btn-primary text-write" id="Crear" asp-action="Editar" asp-route-id="@cancha.CanchaVoleiId">Editar</a>
+                            <a class="btn btn-danger text-write" asp-action="Borrar" asp-route-id="@cancha.CanchaVoleiId">Borrar</a>
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        }
+        else
+        {
+            <p>No hay Canchas registradas</p>
+        }
+    </div>
+   
+</body>
+@section Scripts{
+    <script src="~/js/Alerts.js"></script>
+}

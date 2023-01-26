@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Canchas4.props" />
+</Project>

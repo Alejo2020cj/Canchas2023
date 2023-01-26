@@ -1,0 +1,90 @@
+﻿@*@model Canchas2.Models.CanchaFut*@
+@model Canchas4.ViewModels.CanchasVoleiVM
+@{
+    ViewData["Title"] = "Crear Cancha";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+<h3 class="text-center">Crear una nueva Cancha</h3>
+<form method="post" id="frmEnviar" asp-action="Crear">
+    <div class="row">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="col-12 mt-4">
+            <div class="row">
+                <div class="col-4">
+                    <label asp-for="CanchVolei.Nombre"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="CanchVolei.Nombre" class="form-control" />
+                    <span asp-validation-for="CanchVolei.Nombre" class="text-danger"></span>
+                    @if (Model.CanchVolei != null && Model.CanchVolei.mensajeError != "")
+                    {
+
+                            <p class="text-danger"> El nombre ya existe </p>
+                    }
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-4">
+                    <label asp-for="CanchVolei.Descripcion"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="CanchVolei.Descripcion" class="form-control" />
+                    <span asp-validation-for="CanchVolei.Descripcion" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <label asp-for="CanchVolei.Sede"></label>
+                </div>
+                <div class="col-8">
+                    @Html.DropDownListFor(u => u.CanchVolei.SedeId, Model.ListaCanchaVoleiSedes, "--Lista de categorías--",
+                    new {@class = "form-control"})
+                    <span asp-validation-for="CanchVolei.SedeId" class="text-danger"></span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-3">
+            <a asp-action="Index">Volver a lista</a>
+        </div>
+        <div class="col-5 offset-4">
+            <button type="button" onclick="abrirModal()" class="btn btn-primary form-control">Crear</button>
+            &nbsp;
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
+
+<script>
+    function abrirModal(frmEnviar) {
+
+
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Creaste una nueva cancha',
+            showConfirmButton: false,
+            timer: 1500
+
+        }).then((result) => {
+            if (result) {
+
+                var frmEnviar = document.getElementById("frmEnviar");
+                frmEnviar.submit();
+            }
+
+        })
+
+    }
+</script>

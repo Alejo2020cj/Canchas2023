@@ -1,0 +1,90 @@
+﻿@*@{
+    ViewData["Title"] = "Home Page";
+}*@
+@{
+    ViewData["Title"] = "Lista de canchas tipo Voleibol";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+
+}
+<header>
+    <div class="text-center">
+        <h1 class="display-4">Bienvenidos a la Bombonera</h1>
+        <p>Quieres saber mas de nosotros<a href="https://www.instagram.com/">Visita nuesto Instagram</a>.</p>
+    </div>
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="~/Imagenes/sliders/0438fd90-08ce-4db9-b556-ccb09a894dde.jpg" class="d-block w-100" alt="...">
+            </div>
+
+            <div class="carousel-item">
+                <img src="~/Imagenes/sliders/ed8b92f6-0bdb-468a-b0ac-96e6f555eccd.jpg" class="d-block w-100" alt="...">
+            </div>
+
+            <div class="carousel-item">
+                <img src="~/Imagenes/sliders/715d5fab-04ef-46f4-9db9-b08bffb85043.jpg" class="d-block w-100" alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</header>
+<div class="row fondoTitulo mt-5">
+    <div class="col-sm-12 py-5">
+        <h1 class="text-center text-write">La Bombonera</h1>
+    </div>
+    <div class="card text-center">
+        <div class="card-header">
+            Registro La Bombonera
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Reserva tu cancha</h5>
+            <p class="card-text">Registrate y haste miembro de nuestro equipo</p>
+            <a asp-controller="Reserva" asp-action="Index" class="btn btn-primary">Registrarce</a>
+            <a asp-controller="Sede" asp-action="Index" class="btn btn-primary">Sede</a>
+        </div>
+        <div class="card-footer text-muted">
+            Bienvenido
+        </div>
+    </div>
+</div>
+<div class="col-sm-12 py-5 align-content-center">
+    <div class="row fondoTitulo mt-5">
+        <div class="card" style="width: 18rem;">
+            <img src="~/Imagenes/sliders/0438fd90-08ce-4db9-b556-ccb09a894dde.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Tendras lo mejor para reservar tu cancha.</p>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src="~/Imagenes/sliders/715d5fab-04ef-46f4-9db9-b08bffb85043.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Tendras lo mejor para reservar tu cancha.</p>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src="~/Imagenes/sliders/715d5fab-04ef-46f4-9db9-b08bffb85043.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Tendras lo mejor para reservar tu cancha.</p>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src="~/Imagenes/sliders/715d5fab-04ef-46f4-9db9-b08bffb85043.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Tendras lo mejor para reservar tu cancha.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
